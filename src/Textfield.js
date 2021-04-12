@@ -11,8 +11,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Textfield() {
+export default function Textfield({ label }) {
   const classes = useStyles();
 
-  return <TextField id="standard-basic" label="Description" />;
+  return (
+    (
+    <TextField id="standard-basic" label={label}  style={{marginLeft:"20px"}} />
+  )
+  );
 }

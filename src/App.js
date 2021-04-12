@@ -17,7 +17,9 @@ function App() {
 
   return (
     <div className="App">
-        <Navbar/>
+      <Navbar />
+      <Textfield label="Description" />
+      <Textfield label="Date" />
       {/* <input
         placeholder="Description"
         name="description"
