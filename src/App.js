@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
         <Navbar/>
-      <input
+      {/* <input
         placeholder="Description"
         name="description"
         value={todo.description}
@@ -30,7 +30,7 @@ function App() {
         value={todo.date}
         onChange={inputChanged}
       />
-      <button onClick={addTodo}>Add</button>
+      <button onClick={addTodo}>Add</button> */}
     </div>
   );
 }
