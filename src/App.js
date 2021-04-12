@@ -101,10 +101,25 @@ function App() {
         className="ag-theme-material"
         style={{ height: 600, width: 600, margin: "auto" }}
       >
-        <AgGridReact rowData={todos}>
-          <AgGridColumn field="description"></AgGridColumn>
-          <AgGridColumn field="date"></AgGridColumn>
-          <AgGridColumn field="status"></AgGridColumn>
+        <AgGridReact rowData={todos} animateRows={true}>
+          <AgGridColumn
+            field="description"
+            sortable={true}
+            filter={true}
+            suppressMovable={true}
+          ></AgGridColumn>
+          <AgGridColumn
+            field="date"
+            sortable={true}
+            filter={true}
+            suppressMovable={true}
+          ></AgGridColumn>
+          <AgGridColumn
+            field="status"
+            sortable={true}
+            filter={true}
+            suppressMovable={true}
+          ></AgGridColumn>
         </AgGridReact>
       </div>
     </div>
