@@ -7,5 +7,3 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-
-heroku create bookstore123 -b https://github.com/JibrilOs/courseWork.git
