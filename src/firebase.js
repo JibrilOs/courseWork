@@ -1,6 +1,4 @@
-
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { AgGridColumn, AgGridReact } from "ag-grid-react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -13,7 +11,7 @@ import "./App.css";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-material.css";
 
-function App() {
+function Firebase() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
@@ -32,11 +30,10 @@ function App() {
   // Add keys to the todo objects
   const addKeys = (data) => {
     const keys = Object.keys(data);
-     const valueKeys = Object.values(data).map((item, index) =>
-       Object.defineProperty(item, "id", { value: keys[index] })
-     );
+    const valueKeys = Object.values(data).map((item, index) =>
+      Object.defineProperty(item, "id", { value: keys[index] })
+    );
     setTodos(valueKeys);
-  
   };
 
   const addTodo = (newTodo) => {
@@ -53,7 +50,7 @@ function App() {
 
   const deleteTodo = (id) => {
     fetch(
-      `https://bookstore-2671f-default-rtdb.europe-west1.firebasedatabase.app/books/${id}.json`,
+      `https://bookstore-2671f-default-rtdb.europe-west1.firebasedatabase.app/books/.json${id}.json`,
       {
         method: "DELETE",
       }
@@ -67,33 +64,26 @@ function App() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h5" noWrap>
-            BOOKSTORE
+            TodoList
           </Typography>
         </Toolbar>
       </AppBar>
       <AddTodo addTodo={addTodo} />
       <div
         className="ag-theme-material"
-        style={{
-          height: 400,
-          width: "73%",
-          margin: "auto",
-        }}
+        style={{ height: 400, width: 700, margin: "auto" }}
       >
         <AgGridReact rowData={todos}>
-          <AgGridColumn sortable={true} filter={true} field="author" />
-          <AgGridColumn sortable={true} filter={true} field="isbn" />
-          <AgGridColumn sortable={true} filter={true} field="price" />
-          <AgGridColumn sortable={true} filter={true} field=" title" />
-          <AgGridColumn sortable={true} filter={true} field="year" />
+          <AgGridColumn sortable={true} filter={true} field="description" />
+          <AgGridColumn sortable={true} filter={true} field="date" />
+          <AgGridColumn sortable={true} filter={true} field="priority" />
           <AgGridColumn
             headerName=""
             field="id"
             width={90}
             cellRendererFramework={(params) => (
               <IconButton
-                onClick={() => {deleteTodo(params.value)
-                console.log(params.value)}}
+                onClick={() => deleteTodo(params.value)}
                 size="small"
                 color="secondary"
               >
@@ -107,4 +97,4 @@ function App() {
   );
 }
 
-export default App;
+export default Firebase;

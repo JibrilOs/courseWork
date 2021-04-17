@@ -1,9 +1,7 @@
 .App {
-  text-align: center;
   
   width: 100%;
-  background-color: rgb(245, 240, 240);
-  margin-top: 10px;
+  color:black !important
 }
 
 .App h1{
@@ -11,10 +9,10 @@
   font-size: 20px;
   text-align: left;
 }
-.App table{ 
+/* .App table{ 
  margin: auto;
 width: 100%;
-}
+} */
 
 
 .cen{
@@ -37,3 +35,10 @@ margin-left: 26px;
 
 }
 
+
+       
+       
+         
+         
+     
+      
