@@ -12,6 +12,7 @@ import AddTodo from "./AddTodo";
 import "./App.css";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-material.css";
+import { Button } from "@material-ui/core";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -71,7 +72,9 @@ function App() {
           </Typography>
         </Toolbar>
       </AppBar>
+
       <AddTodo addTodo={addTodo} />
+
       <div
         className="ag-theme-material"
         style={{
@@ -92,8 +95,10 @@ function App() {
             width={90}
             cellRendererFramework={(params) => (
               <IconButton
-                onClick={() => {deleteTodo(params.value)
-                console.log(params.value)}}
+                onClick={() => {
+                  deleteTodo(params.value);
+                  console.log(params.value);
+                }}
                 size="small"
                 color="secondary"
               >
@@ -102,6 +107,11 @@ function App() {
             )}
           />
         </AgGridReact>
+      </div>
+      <div className="div" style={{ paddingTop: "0", textAlign: "center" }}>
+        <Button variant="outlined" onClick={() => setTodos([])} color="primary">
+          Clear table
+        </Button>
       </div>
     </div>
   );
